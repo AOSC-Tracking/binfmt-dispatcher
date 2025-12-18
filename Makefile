@@ -6,17 +6,17 @@ DATADIR ?= $(PREFIX)/share
 POLKITACTIONSDIR ?= $(DATADIR)/polkit-1/actions
 SYSCONFIGDIR ?= /etc
 
-RUSTFLAGS ?= --release
+CARGOFLAGS ?= --release
 
 ROOTDIR := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 
 all: build
 
 build:
-	cargo build $(RUSTFLAGS)
+	cargo build $(CARGOFLAGS)
 
 check:
-	cargo test $(RUSTFLAGS)
+	cargo test $(CARGOFLAGS)
 
 clean:
 	rm -rf target
