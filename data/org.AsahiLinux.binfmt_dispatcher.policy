@@ -6,7 +6,7 @@
   <vendor>binfmt-dispatcher</vendor>
   <vendor_url>https://github.com/AsahiLinux/binfmt-dispatcher</vendor_url>
 
-  <action id="org.AsahiLinux.binfmt_dispatcher.pkexec.dnf">
+  <action id="org.AsahiLinux.binfmt_dispatcher.pkexec.oma">
     <description>Install missing requirements for the interpreter</description>
     <message>Authentication is required to install the missing requirements for the interpreter</message>
     <icon_name>system-software-install</icon_name>
@@ -15,7 +15,7 @@
       <allow_inactive>auth_admin_keep</allow_inactive>
       <allow_active>yes</allow_active>
     </defaults>
-    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/dnf</annotate>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/oma</annotate>
     <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
   </action>
 </policyconfig>

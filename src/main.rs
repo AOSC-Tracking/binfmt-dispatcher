@@ -97,34 +97,34 @@ fn main() {
             ));
         }
 
-        let mut dnf_command;
+        let mut oma_command;
         if stdin().is_terminal() {
             trace!("Running in a terminal");
-            dnf_command = Command::new("pkexec");
+            oma_command = Command::new("pkexec");
         } else {
             trace!("Not running in a terminal");
-            dnf_command = Command::new("xdg-terminal-exec");
-            dnf_command.arg("--");
-            dnf_command.arg("pkexec");
+            oma_command = Command::new("xdg-terminal-exec");
+            oma_command.arg("--");
+            oma_command.arg("pkexec");
         }
 
-        dnf_command.arg("/usr/bin/dnf");
-        dnf_command.arg("install");
-        dnf_command.args(&interpreter_missing_paths);
-        debug!("Running:\n{:#?}", dnf_command);
-        match dnf_command.spawn() {
+        oma_command.arg("/usr/bin/oma");
+        oma_command.arg("install");
+        oma_command.args(&interpreter_missing_paths);
+        debug!("Running:\n{:#?}", oma_command);
+        match oma_command.spawn() {
             Ok(mut child) => {
-                let status = child.wait().expect("Failed to wait on dnf process");
+                let status = child.wait().expect("Failed to wait on oma process");
                 if !status.success() {
                     debug!(
-                        "Failed to install missing requirements: dnf returned {:?}",
+                        "Failed to install missing requirements: oma returned {:?}",
                         status
                     );
                     abort("The installation failed. Please try again.");
                 }
             }
             Err(e) => {
-                debug!("Failed to execute dnf: {}", e);
+                debug!("Failed to execute oma: {}", e);
                 abort("The package manager failed to start. Please try again.");
             }
         }
