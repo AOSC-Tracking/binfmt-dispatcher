@@ -7,6 +7,7 @@ path = "/usr/bin/muvm"
 
 [interpreters.box64]
 path = "/usr/bin/box64"
+use_muvm = true
 
 [interpreters.fex]
 name = "FEX"
